@@ -1,8 +1,31 @@
 import React from 'react'
 import { Redirect, withRouter } from 'react-router-dom'
+import Header from './Header'
+import ListItem from './ListItem'
 
 class List extends React.Component{
 
+  constructor(){
+    super(props)
+
+    // this.state = {
+    //   option: [
+    //     {
+    //       id: 0,
+    //       title: 'Objects',
+    //       selected: false,
+    //       key: 'option'
+    //     },
+    //     {
+    //       id: 1, 
+    //       title: 'Content',
+    //       selected: false,
+    //       key: 'option'
+    //     }
+    //   ]
+    // }
+  }
+  
 
   render() {
 
@@ -20,3 +43,5 @@ class List extends React.Component{
     )
   }
 }
+
+export default List

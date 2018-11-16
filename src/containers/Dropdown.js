@@ -1,12 +1,19 @@
 import React from 'react'
 import { Component } from "react";
-import List from '../components/List'
+import { Redirect, withRouter } from 'react-router-dom'
+import List from '../components/List.'
+
+
 
 class Dropdown extends Component {
 
   render() {
-    const {header} 
+    const { header } = this.props
+
+    return(
+
+    )
   }
 }
 
-export default Dropdown
+export default withRouter(Dropdown)
