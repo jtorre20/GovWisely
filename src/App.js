@@ -3,8 +3,13 @@ import {Route, Switch} from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import Dropdown from './containers/Dropdown'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faAngleDown, faAngleUp} from '@fortawesome/free-solid-svg-icons'
 
-const healthObj = ''
+library.add(fab, faAngleDown, faAngleUp)
+
+// const healthObj = ''
 
 class App extends Component {
 
@@ -35,15 +40,17 @@ class App extends Component {
     }
   }
 
-  updateDropdown = (option) => {
-    this.setState({dropdownSelection: option})
-  }
+  // updateDropdown = (option) => {
+  //   this.setState({dropdownSelection: option})
+  // }
 
 
   render() {
     return (
       <div className="App">
-        < Dropdown dropdownOpt={this.updateDropdown}/>
+        <div className="wrapper">
+        < Dropdown title="Select option" list={this.state.option}/>
+        </div>
       </div>
     );
   }
