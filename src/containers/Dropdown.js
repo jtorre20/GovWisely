@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 // import { Component } from "react";
-// import { Redirect, withRouter } from 'react-router-dom'
-// import List from '../components/List.'
 import onClickOutside from 'react-onclickoutside';
 import FontAwesome from 'react-fontawesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../styles/css/global.css'
-
-
 
 class Dropdown extends Component {
 
@@ -19,13 +15,21 @@ class Dropdown extends Component {
       }
     }
 
-    handleClickOutside(){
+    handleClickOutside(e){
       this.setState({
         listOpen: false
       })
     }
 
-    toggleList(){
+    selectItem = (title, id, stateKey) => {
+      this.setState({
+        headerTitle: title,
+        listOpen: false
+      }, this.props.resetThenSet(id, stateKey))
+    }
+
+
+    toggleList = () => {
       this.setState(prevState => ({
         listOpen: !prevState.listOpen
       }))
@@ -33,7 +37,7 @@ class Dropdown extends Component {
 
   render() {
     // const { header } = this.props
-    const { list } = this.props
+    const { list, toggleItem } = this.props
     const { listOpen, headerTitle } = this.state
 
     return(
@@ -53,12 +57,11 @@ class Dropdown extends Component {
 
         {listOpen && <ul className="dd-list">
           {list.map((item) => (
-            <li className="dd-list-item" key={item.id}>{item.title}
+      // debugger
+            <li className="dd-list-item" key={item.id} onClick={() => this.selectItem(item.title, item.id, item.key)}>{item.title} {item.selected && <FontAwesomeIcon className="check" icon="check" />}
             </li>
             
             ))}
-        {/* <li className="dd-list-item"></li>
-        <li className="dd-list-item"></li> */}
       </ul>}
     </div>
       // < List >

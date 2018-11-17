@@ -45,7 +45,7 @@ p {
 .dd-wrapper {
   user-select: none;
   position: relative;
-  width: 222px;
+  width: 225px;
 }
 .dd-wrapper .dd-header {
   display: flex;
@@ -89,4 +89,14 @@ p {
 .dd-wrapper .dd-list .dd-list-item {
   width: 100%;
   font-size: 1.5rem;
+  padding: 8px 10px;
+  line-height: 1.6rem;
+  cursor: default;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.dd-wrapper .dd-list .dd-list-item.selected {
+  color: #fff;
+  background-color: #ffcc01;
 }

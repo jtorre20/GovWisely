@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import {Route, Switch} from 'react-router-dom'
-import logo from './logo.svg';
-// import './App.css';
-// import './styles/stylus/dropdown.styl'
 import Dropdown from './containers/Dropdown'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faAngleDown, faAngleUp} from '@fortawesome/free-solid-svg-icons'
+import { faAngleDown, faAngleUp, faCheck} from '@fortawesome/free-solid-svg-icons'
+// import './App.css';
 
-library.add(fab, faAngleDown, faAngleUp)
+library.add(fab, faAngleDown, faAngleUp, faCheck)
 
 // const healthObj = ''
 
@@ -18,39 +16,57 @@ class App extends Component {
     super(props)
 
     this.state = {
-      option: [
+      options: [
         {
           id: 0,
           title: 'Objects',
           selected: false,
-          key: 'option'
+          key: 'options'
         },
         {
           id: 1, 
           title: 'Content',
           selected: false,
-          key: 'option'
+          key: 'options'
         },
         {
           id: 2,
           title: "Index",
           selected: false,
-          key: 'option'
+          key: 'options'
         }
       ]
     }
   }
 
-  // updateDropdown = (option) => {
-  //   this.setState({dropdownSelection: option})
+  // key = "options"
+    // refers to this.state.options || this.state[key]
+  
+  // toggleSelected(id, key){
+  //   let temp = this.state[key]
+  //   temp[id].selected = !temp[id].selected
+  //   this.setState({
+  //     [key]: temp
+  //   })
   // }
 
-
+  resetThenSet = (id, key) => {
+    // let temp = JSON.parse(JSON.stringify(this.state[key]))
+    let temp = this.state[key]
+    temp.forEach(item => item.selected = false)
+    temp[id].selected = true
+    this.setState({
+      [key]: temp
+    })
+  }
+  
+  
   render() {
+    // debugger
     return (
       <div className="App">
         <div className="wrapper">
-        < Dropdown title="Select option" list={this.state.option}/>
+        < Dropdown title="Select Option" list={this.state.options} resetThenSet={this.resetThenSet}/>
         </div>
       </div>
     );
