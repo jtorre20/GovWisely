@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 // import { Redirect, withRouter } from 'react-router-dom'
 // import List from '../components/List.'
 import onClickOutside from 'react-onclickoutside';
-// import FontAwesome from 'react-fontawesome';
+import FontAwesome from 'react-fontawesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import '../styles/css/global.css'
 
 
 
@@ -37,13 +38,19 @@ class Dropdown extends Component {
 
     return(
       <div className="dd-wrapper">
+
       <div className="dd-header" onClick={() => this.toggleList()}>
         <div className="dd-header-title">{headerTitle}</div>
+        {/* {listOpen 
+        ? <FontAwesome name="angle-up" size="2x" />
+        : <FontAwesome name="angle-down" size="2x" />
+      } */}
         {listOpen 
-        ? <FontAwesomeIcon icon="angle-up" size="2x" />
-        : <FontAwesomeIcon icon="angle-down" size="2x" />
+        ? <FontAwesomeIcon className="angle" icon="angle-up" size="2x" />
+        : <FontAwesomeIcon className="angle" icon="angle-down" size="2x" />
       }
       </div> 
+
         {listOpen && <ul className="dd-list">
           {list.map((item) => (
             <li className="dd-list-item" key={item.id}>{item.title}
