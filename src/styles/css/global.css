@@ -100,3 +100,7 @@ p {
   color: #fff;
   background-color: #ffcc01;
 }
+.dd-wrapper .dd-list .dd-list-item:hover {
+  color: #fff;
+  background-color: #ffcc01;
+}

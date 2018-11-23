@@ -1,38 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Redirect, withRouter } from 'react-router-dom'
-import Header from './Header'
-import ListItem from './ListItem'
+
 
 class List extends React.Component{
 
-  constructor(){
-    super(props)
-
-    // this.state = {
-    //   option: [
-    //     {
-    //       id: 0,
-    //       title: 'Objects',
-    //       selected: false,
-    //       key: 'option'
-    //     },
-    //     {
-    //       id: 1, 
-    //       title: 'Content',
-    //       selected: false,
-    //       key: 'option'
-    //     }
-    //   ]
-    // }
-  }
   
-
   render() {
 
+  const { list, contData } = this.props
+    // console.log(contData)
     return(
-    <div className="dd-wrapper">
+    <div className="list-wrapper">
       <div className="dd-header">
-        <div className="dd-header-title">Hi</div>
+        <div className="dd-header-title"></div>
       </div> 
       <ul className="dd-list">
         <li className="dd-list-item"></li>
